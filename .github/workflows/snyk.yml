@@ -1,27 +1,23 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Java CI with snyk
-
+name: Example  Snyk testing
 on:
   push:
-    branches: dev
+    branches:
+      - feature/*
+      - fix/*
 
 
 jobs:
-  build:
-
+  security:
     runs-on: ubuntu-latest
-   steps:
-     - uses: actions/checkout@master
-     - name: Run Snyk to check for vulnerabilities
-       uses: snyk/actions/maven@master
-       env:
-         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-       with:
-         command: code test
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven-3-jdk-11@master
+       
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} snyk test
+          
+
+           
+          
+
