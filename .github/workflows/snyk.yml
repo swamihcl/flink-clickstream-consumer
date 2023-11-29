@@ -9,15 +9,12 @@ on:
 jobs:
   security:
     runs-on: ubuntu-latest
+    environment: "dev"
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven-3-jdk-11@master
        
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} snyk test
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           
-
-           
-          
-
