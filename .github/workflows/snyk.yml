@@ -2,8 +2,7 @@ name: Example  Snyk testing
 on:
   push:
     branches:
-      - feature/*
-      - fix/*
+      - dev
 
 
 jobs:
